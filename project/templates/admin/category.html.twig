@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <div class="container ">
+        <div class="row">
+            {% include "_partial/_adminnav.html.twig" %}
+            <main class="col-9 p-2">
+                <h1 class="mx-auto p-2">Liste des Catégories</h1>
+                <div class="card-deck mt-3">
+                    {% for category in category %}
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <b>{{ category.name }}</b>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h6 class="card-text">ID: {{ category.id }}</h6>
+                                        {% if category.parentCategory is defined  and category.parentCategory is not null %}
+                                            <p class="card-text"><strong>Parent:</strong> {{ category.idParent }}
+                                                ({{ category.parentCategory.name }})</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col">
+                                        <p class="card-text"><strong>Images:</strong>
+                                            {% if category.image is not null %}
+                                            <img src="{{ asset('img/' ~ category.image) }}" class="img-fluid">
+
+                                            {% else %}
+                                        <p>Aucune image disponible</p>
+                                        {% endif %}
+                                        </p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="card-text"><strong>Description:</strong>
+                                        <div>{{ category.description }}</div>
+                                        </p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="{{ path('admin_categories_edit', {'id': category.id }) }}"
+                                               class="btn btn-success">Modifier</a>
+                                            <a href="{{ path('admin_categories_delete', {'id': category.id }) }}"
+                                               class="btn btn-danger"
+                                               onclick="return confirm('Êtes-vous sûr de vouloir supprimer la catégorie \' {{ category.name }} \'?')">Supprimer</a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}

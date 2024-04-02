@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop{% endblock %}
+
+{% block body%}
+<div class="container ">
+    <div class="row">
+{% include "_partial/_shopnav.html.twig" %}
+
+
+            <div class="card col-4 ">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    {% if product.productPictures is not empty %}
+                        <div id="productCarousel_{{ product.id }}" class="carousel carousel-dark slide"
+                             data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                {% for key, productPicture in product.productPictures %}
+
+                                    <div class="carousel-item {% if key == 0 %}active{% endif %}">
+                                        <img src="{{ asset('img/' ~ productPicture.name) }}" class="d-block w-100"
+                                             alt="...">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#productCarousel_{{ product.id }}" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                    data-bs-target="#productCarousel_{{ product.id }}" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    {% else %}
+                        <div class="text-center">
+                            <img src="{{ asset('img/kermit-2687975_640.webp') }}" class="img-fluid" alt="...">
+                        </div>
+                    {% endif %}
+                    <p class="card-text">Description : {{ product.description }}</p>
+                    <p class="card-text">Prix : {{ product.price }}€</p>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

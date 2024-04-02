@@ -1,0 +1,143 @@
+<div class="row">
+    <div class="card-body">
+        <h4>Votre panier : </h4>
+        <div id="cart-summary">
+            {% for element in dataPanier %}
+                <div class="col">{{ element.product.name }} {{ element.product.price }}€/u</div>
+                <div class="row">
+                    <div class="col col-3">
+                        <input type="number" min="0" max="1000" value="{{ element.quantity }}" name="quantity"
+                               class="form-control quantity-input" data-product-id="{{ element.product.id }}">
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-danger delete-from-cart-btn" data-product-id="{{ element.product.id }}">
+                            <i class="bi bi-cart-x"></i>
+                        </button>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="card-footer">
+                Total :
+                <span id="total">{{ total }}€</span><a href='{{ path('cart_index') }}' class="btn btn-success">mon panier</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+        const totalElement = document.getElementById('total');
+
+    });
+
+    function updateCartSummary() {
+        const totalElement = document.getElementById('total');
+        const cartSummary = document.getElementById('cart-summary');
+        let total = 0;
+
+        fetch('/cart/data')
+            .then(response => response.json())
+            .then(data => {
+                let cartHtml = '';
+
+                data.forEach(element => {
+                    cartHtml += `<div class="col">${element.product.name} ${element.product.price}€/u</div>
+ <div class="row">
+     <div class="col col-3">
+         <input type="number" min="0" max="1000" value="${element.quantity}" name="quantity"
+                class="form-control quantity-input" data-product-id="${element.product.id}">
+     </div>
+     <div class="col">
+         <button class="btn btn-danger delete-from-cart-btn" data-product-id="${element.product.id}">
+             <i class="bi bi-cart-x"></i>
+         </button>
+     </div>
+ </div>`;
+                    total += element.product.price * element.quantity;
+                });
+
+                cartHtml += `<div class="card-footer">Total :
+<span id="total">${total.toFixed(2)}€</span><a href='{{ path('cart_index') }}' class="btn btn-success">mon
+    panier</a>
+</div>`;
+
+                cartSummary.innerHTML = cartHtml;
+                totalElement.textContent = total.toFixed(2) + '€';
+
+                // Réattacher les écouteurs d'événements après la mise à jour du contenu du panier
+                attachEventListeners();
+                attachQuantityInputListeners();
+            })
+            .catch(error => {
+                console.error(error.message);
+            });
+    }
+
+    function attachEventListeners() {
+        const deleteButtons = document.querySelectorAll('.delete-from-cart-btn');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                const productId = button.dataset.productId;
+
+                fetch(`/cart/removeAjax/${productId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log('Produit supprimé du panier avec succès');
+                            updateCartSummary(); // Mettre à jour le panier après la suppression du produit
+                        } else {
+                            console.error('Erreur lors de la suppression du produit du panier');
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error.message);
+                    });
+            });
+        });
+    }
+
+    function attachQuantityInputListeners() {
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+        quantityInputs.forEach(input => {
+            input.addEventListener('change', function (event) {
+                const productId = event.target.dataset.productId;
+                const newQuantity = event.target.value;
+
+                fetch(`/cart/update/${productId}?quantity=${newQuantity}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log('Quantité mise à jour avec succès');
+                            updateCartSummary(); // Mettre à jour le panier après la modification de la quantité
+                        } else {
+                            console.error('Erreur lors de la mise à jour de la quantité');
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error.message);
+                    });
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Appel initial pour attacher les écouteurs d'événements
+        attachEventListeners();
+        attachQuantityInputListeners();
+    });
+
+
+
+
+</script>

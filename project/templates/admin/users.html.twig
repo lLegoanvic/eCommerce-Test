@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <div class="container ">
+        <div class="row">
+            {% include "_partial/_adminnav.html.twig" %}
+            <main class="col-9 p-2">
+                <h1 class="mx-auto p-2">Liste des utilisateurs</h1>
+                <div class="card-deck mt-3">
+                    {% for user in users %}
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title">Utilisateur ID: {{ user.id }}</h5>
+                                        <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+                                        <p class="card-text"><strong>Rôle:</strong>
+                                            {% for role in user.roles %}
+                                                {{ role }}
+                                            {% endfor %}
+                                        </p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="card-text"><strong>Infos:</strong> {{ user.infos }}</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="card-text"><strong>Is_verified:</strong> {% if user.isverified == 1 %}
+                                                Yes
+                                            {% else %}
+                                                No
+                                            {% endif %}</p>
+                                    </div>
+                                    <div class="col">
+                                        <a href="{{ path('admin_users_update', {'id': user.id }) }}" class="btn btn-success">Modifier</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}

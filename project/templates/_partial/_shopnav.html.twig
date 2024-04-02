@@ -1,0 +1,98 @@
+{% macro renderMenu(categories) %}
+    <ul>
+        {% for category in categories %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('shop_test2', {'id': category.id }) }}"> {{ category.name }} <b
+                            class="float-end">&raquo;</b> </a>
+                {% if category.subcategories is not empty %}
+                    <ul class="submenu dropdown-menu">
+                        {{ _self.renderMenu(category.subcategories) }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% import _self as macros %}
+<aside class="col-3 p-2">
+
+    <nav class="sidebar card py-2 mb-4">
+        <div class="row">
+            <div class="nav flex-column">
+                {{ macros.renderMenu(categoryTree) }}
+            </div>
+        </div>
+        {% include "_partial/_cartMenu.html.twig" %}
+    </nav>
+</aside>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // make it as accordion for smaller screens
+        if (window.innerWidth < 992) {
+
+            document.querySelectorAll('.sidebar .nav-link').forEach(function (element) {
+
+                element.addEventListener('click', function (e) {
+
+                    let nextEl = element.nextElementSibling;
+                    let parentEl = element.parentElement;
+                    let allSubmenus_array = parentEl.querySelectorAll('.submenu');
+
+                    if (nextEl && nextEl.classList.contains('submenu')) {
+                        e.preventDefault();
+                        if (nextEl.style.display == 'block') {
+                            nextEl.style.display = 'none';
+                        } else {
+                            nextEl.style.display = 'block';
+                        }
+                    }
+                });
+            })
+        }
+// end if innerWidth
+    });
+
+    // DOMContentLoaded  end
+
+
+
+</script>
+
+<style>
+    /* ============ desktop view ============ */
+    @media all and (min-width: 992px) {
+
+        .sidebar li {
+            position: relative;
+        }
+
+        .sidebar li .submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: -7px;
+            min-width: 240px;
+        }
+
+        .sidebar li:hover > .submenu {
+            display: block;
+        }
+    }
+
+    /* ============ desktop view .end// ============ */
+
+    /* ============ small devices ============ */
+    @media (max-width: 991px) {
+
+        .sidebar .submenu, .sidebar .dropdown-menu {
+            position: static !important;
+            margin-left: 0.7rem;
+            margin-right: 0.7rem;
+            margin-bottom: .5rem;
+        }
+
+    }
+
+    /* ============ small devices .end// ============ */
+</style>

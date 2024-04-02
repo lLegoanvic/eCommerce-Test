@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% form_theme registrationForm 'bootstrap_5_horizontal_layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {% for flash_error in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+        {% endfor %}
+        <div class="row justify-content-center">
+            <div class="col col-8">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h1 class="mx-auto p-2">Register</h1>
+                        {{ form_errors(registrationForm) }}
+                    </div>
+                    <div class="card-body text-center">
+                        {{ form_start(registrationForm) }}
+
+                        <div class="mb-3 row">
+                            <div class="col col-8 mx-auto">
+                                <p class="card-text"> {{ form_row(registrationForm.email) }}</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <div class="col col-8 mx-auto">
+                                <p class="card-text"> {{ form_row(registrationForm.plainPassword) }}</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <div class="col col-8 mx-auto">
+                                <p class="card-text"> {{ form_row(registrationForm.infos) }}</p>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <div class="col col-2 mx-auto">
+                                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <div class="col-sm-8 offset-sm-2"> <!-- Utilisation de offset-sm-2 pour centrer horizontalement -->
+                                <button type="submit" class="btn btn-primary">Register</button>
+                                <a href="{{ path('app_login') }}" class="mt-2">Se connecter</a>
+                            </div>
+                        </div>
+
+                        {{ form_end(registrationForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

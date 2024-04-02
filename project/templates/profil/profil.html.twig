@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LoginController!{% endblock %}
+
+{% block body %}
+
+<div class="container col-md-4">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    <div class="row">
+        <div class="card col align-self-center ">
+                <div class="col-auto">
+                    <div class="card-header text-center">
+                        <h1 class="mx-auto p-2 ">Informations personnelles</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col col-4">
+                                    Address mail
+                                </div>
+                                <div class="col col-6">
+                                    {{ app.user.userIdentifier }}
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col col-4">
+                                    Infos
+                                </div>
+                                <div class="col col-6">
+                                    {{ app.user.Infos }}
+                                </div>
+                            </div>
+                            <div class="row mt-2 align-self-center flex-wrap">
+                                <div class="col d-flex justify-content-between">
+                                    <a href='{{ path('profil_update') }}' class="btn btn-primary">Modifier</a>
+                                    <a href='{{ path('update_password') }}' class="btn btn-primary">Changer votre mot de passe</a>
+                                </div>
+                            </div>
+                            <a href='{{ path('profil_ordersView') }}' class="btn btn-primary mt-2">Mes commandes</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

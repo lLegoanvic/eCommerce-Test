@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% form_theme AdminForm 'bootstrap_5_horizontal_layout.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <div class="container ">
+        <div class="row">
+            {% include "_partial/_adminnav.html.twig" %}
+            <main class="col-9 p-2">
+                <h1 class="mx-auto p-2">Modification</h1>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div class="row">
+                            {{ form_start(AdminForm) }}
+                            <div class="col">
+                                <p class="card-text"><strong>ID:</strong> {{ user.id }}</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text"><strong>Email:</strong> {{ form_row(AdminForm.email) }}</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text"><strong>Rôle:</strong> {{ form_row(AdminForm.roles) }}</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text"><strong>Infos:</strong> {{ form_row(AdminForm.infos) }}</p>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Modifier</button>
+                            </div>
+                            {{ form_end(AdminForm) }}
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}

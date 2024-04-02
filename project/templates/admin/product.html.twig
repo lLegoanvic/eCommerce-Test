@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <div class="container ">
+        <div class="row">
+            {% include "_partial/_adminnav.html.twig" %}
+            <main class="col-9 p-2">
+                <h1 class="mx-auto p-2">Liste des Produits</h1>
+                <div class="card-deck mt-3">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    {% for product in products %}
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <b>{{ product.name }}</b>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h6 class="card-text">ID: {{ product.id }}</h6>
+                                        <p class="card-text"><strong>Categorie:</strong> {{ product.category.name }}</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="card-text"><strong>Images:</strong>
+                                            {% if product.productPictures is not null %}
+                                        <div id="productCarousel_{{ product.id }}" class="carousel carousel-dark slide"
+                                             data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                                {% for key, productPicture in product.productPictures %}
+
+                                                    <div class="carousel-item {% if key == 0 %}active{% endif %}">
+                                                        <img src="{{ asset('img/' ~ productPicture.name) }}"
+                                                             class="d-block w-100" alt="...">
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                    data-bs-target="#productCarousel_{{ product.id }}"
+                                                    data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                    data-bs-target="#productCarousel_{{ product.id }}"
+                                                    data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+                                        {% else %}
+                                            <p>Aucune image disponible</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col">
+                                        <p class="card-text"><strong>Description:</strong>
+                                        <div>{{ product.description }}</p></div>
+                                    </div>
+                                    <div class="row">
+                                        <p class="card-text"><strong>Prix:</strong>
+                                        <div>{{ product.price }}</p></div>
+
+                                    </div><div class="row">
+                                        <p class="card-text"><strong>stock:</strong>
+                                        <div>{{ product.stock }}</p></div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="{{ path('admin_product_edit', {'id': product.id }) }}"
+                                               class="btn btn-success">Modifier</a>
+                                            <a href="{{ path('admin_product_delete', {'id': product.id }) }}"
+                                               class="btn btn-danger"
+                                               onclick="return confirm('Êtes-vous sûr de vouloir supprimer le produit \' \'?')">Supprimer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}

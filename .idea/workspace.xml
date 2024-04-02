@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0ede4b2c-0c6d-4e40-b803-7e202c9cba2e" name="Changes" comment="" />
+    <list id="f951e956-e568-4604-89d9-9085886282e7" name="Changes by 33650" comment="" />
+    <list id="1d1474ce-1091-4fdc-a983-950e0ad355cb" name="Changes by dev" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/project/website-skeleton/composer.json" />
+      <option value="$PROJECT_DIR$/project/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$APPLICATION_HOME_DIR$/plugins/php-impl/lib/php.jar!/stubs/http/http3.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
+    <include_path>
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/orm-pack" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/notifier" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/stimulus-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/serializer-pack" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/profiler-pack" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/webapp-pack" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/ux-turbo" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/twig-pack" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/test-pack" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/composer" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/debug-pack" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/asset-mapper" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/project/website-skeleton/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/project/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/project/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/project/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/project/vendor/symfonycasts/verify-email-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/project/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/lock" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/rate-limiter" />
+      <path value="$PROJECT_DIR$/project/vendor/composer" />
+      <path value="$PROJECT_DIR$/project/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/project/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/project/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+    </include_path>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2b7PSX6F8uk49yDRHxAsX2t1zsQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Piou/Desktop/ledossieroujeveux/project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Piou\Desktop\ledossieroujeveux\project\templates" />
+      <recent name="C:\Users\Piou\Desktop\ledossieroujeveux\project\templates\forgot_password" />
+      <recent name="C:\Users\Piou\Desktop\ledossieroujeveux\project\templates\profil" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="project\website-skeleton" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/project/website-skeleton/phpunit.xml.dist" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ede4b2c-0c6d-4e40-b803-7e202c9cba2e" name="Changes" comment="" />
+      <created>1705563144215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705563144215</updated>
+      <workItem from="1705563145301" duration="6830000" />
+      <workItem from="1705572367649" duration="107000" />
+      <workItem from="1705572488419" duration="765000" />
+      <workItem from="1705644131688" duration="71000" />
+      <workItem from="1705647353951" duration="2293000" />
+      <workItem from="1705650221117" duration="7801000" />
+      <workItem from="1705731095281" duration="3543000" />
+      <workItem from="1705903527546" duration="14300000" />
+      <workItem from="1705989532561" duration="15002000" />
+      <workItem from="1706074453810" duration="19289000" />
+      <workItem from="1706161337787" duration="12194000" />
+      <workItem from="1706255277311" duration="15146000" />
+      <workItem from="1706335292235" duration="13096000" />
+      <workItem from="1706421409272" duration="10707000" />
+      <workItem from="1706518291208" duration="14271000" />
+      <workItem from="1706548088648" duration="5421000" />
+      <workItem from="1706594558803" duration="14182000" />
+      <workItem from="1706680687536" duration="18185000" />
+      <workItem from="1706767750566" duration="14777000" />
+      <workItem from="1706853594190" duration="11690000" />
+      <workItem from="1706947630479" duration="10363000" />
+      <workItem from="1707026768991" duration="12459000" />
+      <workItem from="1707039480353" duration="6401000" />
+      <workItem from="1707112908390" duration="12969000" />
+      <workItem from="1707286936120" duration="20244000" />
+      <workItem from="1707319838296" duration="397000" />
+      <workItem from="1707330966843" duration="1932000" />
+      <workItem from="1707372143278" duration="12969000" />
+      <workItem from="1707458980356" duration="13367000" />
+      <workItem from="1707717776212" duration="16825000" />
+      <workItem from="1707747428457" duration="141000" />
+      <workItem from="1707803969468" duration="13607000" />
+      <workItem from="1707890419025" duration="14654000" />
+      <workItem from="1707976919843" duration="14683000" />
+      <workItem from="1708062829416" duration="9443000" />
+      <workItem from="1708096289834" duration="237000" />
+      <workItem from="1708282245895" duration="1199000" />
+      <workItem from="1708322302853" duration="628000" />
+      <workItem from="1708621317451" duration="1305000" />
+      <workItem from="1708622852979" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/project/var/cache/dev/twig/a4/a423a0b96133ca97c7e9bca57365a775.php</url>
+          <line>134</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/project/var/cache/dev/Symfony/Config/SecurityConfig.php</url>
+          <line>18</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/project/src/Form/RegistrationFormType.php</url>
+          <line>40</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

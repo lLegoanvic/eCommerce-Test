@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div class="card-header p-2">
+            <div class="row">
+                <div class="col">Image</div>
+                <div class="col">Produit</div>
+                <div class="col">Prix</div>
+                <div class="col">Quantité</div>
+                <div class="col">Total</div>
+                <div class="col">Actions</div>
+            </div>
+        </div>
+        {% for element in dataPanier %}
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        {% if element.product.productPictures is not empty %}
+                            {% for productPictures in element.product.productPictures %}
+                                {% if productPictures.active == 1 and productPictures.cover ==1 %}
+                                    <div class="col col-9">
+                                        <img src="{{ asset('img/' ~ productPictures.name) }}" class="img-fluid" alt="...">
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <div class="col col-9">
+                                <img src="{{ asset('img/kermit-2687975_640.webp') }} " class="img-fluid">
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col">{{ element.product.name }}</div>
+                    <div class="col">{{ element.product.price }}€</div>
+                    <div class="col">
+                        <input type="number" min="0" max="1000" value="{{ element.quantity }}" name="quantity" class="form-control quantity-input" data-product-id="{{ element.product.id }}">
+                    </div>
+                    <div class="col product-total"><span>{{ element.product.price * element.quantity }}</span>€</div>
+
+                    <div class="col">
+                        <a href="{{ path('cart_add', {id: element.product.id}) }}" class="btn btn-success">
+                            <i class="bi bi-cart-plus"></i>
+                        </a>
+                        <a href="{{ path('cart_delete', {id: element.product.id}) }}" class="btn btn-warning">
+                            <i class="bi bi-cart-dash"></i>
+                        </a>
+                        <a href="{{ path('cart_remove', {id: element.product.id}) }}" class="btn btn-danger">
+                            <i class="bi bi-cart-x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="card-body">
+                <div aria-colspan="6" class="text-center">Votre panier est vide</div>
+            </div>
+        {% endfor %}
+        <div class="card-footer">
+            <div class="row">
+                <div class="col text-end">
+                    Total : <span id="total">{{ total }}€</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-end">
+                    <a href="{{ path('cart_finalise') }}" class="btn btn-success">Finaliser la commande</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            const totalElement = document.getElementById('total');
+
+            quantityInputs.forEach(input => {
+                input.addEventListener('change', function(event) {
+                    const productId = event.target.dataset.productId;
+                    const newQuantity = event.target.value;
+
+                    fetch(`/cart/updateCart/${productId}?quantity=${newQuantity}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                console.log('Quantité mise à jour avec succès');
+                                totalElement.textContent = data.total.toFixed(2) + '€';
+
+                                // Mettre à jour le total pour le produit modifié
+                                const productTotalElement = input.closest('.row').querySelector('.product-total span');
+                                if (productTotalElement) {
+                                    productTotalElement.textContent = data.productTotal.toFixed(2) + '€';
+                                }
+                            } else {
+                                console.error('Erreur lors de la mise à jour de la quantité');
+                            }
+                        })
+                        .catch(error => {
+                            console.error(error.message);
+                        });
+                });
+            });
+        });
+    </script>
+{% endblock %}

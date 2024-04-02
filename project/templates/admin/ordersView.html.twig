@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% include "_partial/_adminnav.html.twig" %}
+            <main class="col-9 p-2">
+                <h1 class="mx-auto p-2">Liste des Commandes</h1>
+                <div class="card-deck mt-3">
+                    {% for order in orders %}
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                Id <b>{{ order.id }}</b>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col mx-auto">
+                                        status: {{ order.codeState.name }}
+                                    </div>
+                                    <div class="col mx-auto">
+                                        user: {{ order.user.email }}
+                                    </div>
+                                    <div class="col mx-auto">
+                                        date: {{ order.createdAt|date('d-m-Y H:i:s') }}
+                                    </div>
+                                    <div class="col col-4">
+                                        <button class="btn btn-primary detail-btn" data-order-id="{{ order.id }}">
+                                            Détail
+                                        </button>
+                                        {% if statusValues[order.id] is defined %}
+                                            <a href='{{ path('admin_orders_status_next', {'id': order.id }) }}' class="btn btn-success">set : {{ statusValues[order.id] }}</a>
+                                        {% endif %}
+                                        <a href='{{ path('admin_orders_delete_order', {'id': order.id }) }}' class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer la commande n°{{ order.id }} \'?')">Annuler</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal pour afficher les détails de la commande -->
+    <div class="modal fade" id="order-details-modal" tabindex="-1" aria-labelledby="order-details-modal-label"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="order-details-modal-label">Détails de la commande</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="order-details-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Récupérer tous les boutons "Détail"
+        const detailButtons = document.querySelectorAll('.detail-btn');
+
+        // Ajouter un écouteur d'événement à chaque bouton "Détail"
+        detailButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const id = this.getAttribute('data-order-id');
+                // Faites une requête AJAX pour récupérer les détails de la commande
+                fetch('/admin/orders/get_order_details/' + id)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Réponse du serveur non valide');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Mettez à jour le contenu de la modal avec les détails de la commande
+                        const orderDetailsBody = document.getElementById('order-details-body');
+                        orderDetailsBody.innerHTML = `
+                            <p><b>Status:</b> ${data.status}</p>
+                            <p><b>User:</b> ${data.user}</p>
+                            <p><b>Date:</b> ${data.date}</p>
+                            <p><b>Total:</b> ${data.total}</p>
+                            <div class="card">
+                            <h4>Order Lines:</h4>
+                              <ul>
+                                ${data.orderLines.map(orderLine => `
+                                    <li>
+                                        ${orderLine.product},
+                                        Quantity: ${orderLine.quantity},
+                                        Price: ${orderLine.price}€
+                                    </li>`).join('')}
+                                </ul>
+
+
+                    </div>
+                        `;
+                        // Afficher la modal
+                        $('#order-details-modal').modal('show');
+                    })
+                    .catch(error => console.error('Erreur lors du chargement des détails de la commande:', error));
+            });
+        });
+    </script>
+{% endblock %}

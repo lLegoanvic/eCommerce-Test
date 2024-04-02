@@ -1,0 +1,186 @@
+{% extends 'base.html.twig' %}
+{% form_theme ProductForm 'bootstrap_5_horizontal_layout.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <div class="container ">
+        <div class="row">
+            {% include "_partial/_adminnav.html.twig" %}
+            <main class="col-9 p-2">
+                <h1 class="mx-auto p-2">Modification</h1>
+                <div class="card mt-3">
+                    <div class="card-body ">
+                        <div class="row">
+                            {{ form_start(ProductForm) }}
+                            <div class="col">
+                                {{ form_row(ProductForm.category) }}
+                            </div>
+                            <div class="col">
+                                {{ form_row(ProductForm.name) }}
+                            </div>
+                            <div class="col">
+                                {{ form_row(ProductForm.price) }}
+                            </div>
+                            <div class="col">
+                                {{ form_row(ProductForm.description) }}
+                            </div>
+                            <div class="col" style="font-weight: bold;">
+                                {{ form_row(ProductForm.stock) }}
+                            </div>
+                            <div class="row m-2">
+                                <div class="col col-3">
+                                    <p class="card-text"><strong>Image:</strong>
+                                </div>
+                                <div class="col  col-3">
+                                    <p class="card-text"><strong>Active:</strong>
+                                </div>
+                                <div class="col col-3">
+                                    <p class="card-text"><strong>Cover:</strong>
+                                </div>
+                                <div class="col col-3">
+                                    <label>
+                                        <b>Tout sélectionner</b>
+                                        <input type="checkbox" id="selectAll" onclick="toggleCheckboxes()">
+                                    </label>
+                                </div>
+                            </div>
+                            {% for key,productPicture in ProductForm.productPictures %}
+
+                                <div class="card m-2 ">
+                                    <div class="row text-center">
+
+                                        <div class="col col-3">
+                                            <img src="{{ asset('img/' ~ product.productPictures[key].name) }}"
+                                                 class="img-fluid custom-image-size" alt="...">
+                                        </div>
+                                        <div class="col col-3">
+                                            {{ form_row(productPicture.active,{'label':false}) }}
+                                        </div>
+                                        <div class="col col-3">
+                                            {{ form_row(productPicture.cover,{'label':false}) }}
+                                        </div>
+                                        <div class="col col-3">
+                                            <label>
+                                                <input class="checkbox-switch" type="checkbox" name="selected[]"
+                                                       value="{{ product.productPictures[key].id }}">
+                                            </label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            {% endfor %}
+                            <div class="row">
+                                <div class="col">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <ul class="productPictures"
+                                        data-index="{{ ProductForm.productPictures|length > 0 ? ProductForm.productPictures|last.vars.name + 1 : 0 }}"
+                                        data-prototype="{{ form_widget(ProductForm.productPictures.vars.prototype)|e('html_attr') }}">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">Modifier</button>
+                                </div>
+                                <div class="col">
+
+                                </div>
+                                <div class="col p-6">
+                                    <a id="deleteButton" class="btn btn-danger"
+                                       onclick="return confirm('Êtes-vous sûr de vouloir supprimer les images sélectionnées ?')">Supprimer
+                                        selection</a>
+                                </div>
+                            </div>
+                            {{ form_row(ProductForm.productPictures,{'attr':{'style':'display:none'}}) }}
+                            {#                            forcé l'affichage du form edit sur le product pictures ( se fait en auto sinon )
+mais je l'ai caché a #}
+                            {{ form_end(ProductForm) }}
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        function toggleCheckboxes() {
+            var checkboxes = document.getElementsByName('selected[]');
+            var selectAllCheckbox = document.getElementById('selectAll');
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = selectAllCheckbox.checked;
+            }
+        }
+
+        const addProductPicturesLink = document.createElement('a')
+        addProductPicturesLink.classList.add('add_tag_list')
+        addProductPicturesLink.href = '#'
+        addProductPicturesLink.innerText = 'Add a picture'
+        addProductPicturesLink.dataset.collectionHolderClass = 'productPictures'
+
+        const newLinkLi = document.createElement('li').append(addProductPicturesLink)
+
+        const collectionHolder = document.querySelector('ul.productPictures');
+        collectionHolder.appendChild(addProductPicturesLink)
+
+        const addFormToCollection = (e) => {
+            const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+            // console.log('test');
+            const item = document.createElement('li');
+
+            item.innerHTML = collectionHolder
+                .dataset
+                .prototype
+                .replace(
+                    /__name__/g,
+                    collectionHolder.dataset.index
+                );
+
+            collectionHolder.appendChild(item);
+
+            collectionHolder.dataset.index++;
+        }
+
+        addProductPicturesLink.addEventListener("click", addFormToCollection)
+
+
+        $(document).ready(function () {
+            // Gérer le clic sur le bouton
+            $("#deleteButton").click(function () {
+                // Récupérer la valeur du select
+                let selectedValues = [];
+                $("input[name='selected[]']:checked").each(function () {
+                    selectedValues.push($(this).val());
+                });
+                console.log(selectedValues);
+                let jsonData = JSON.stringify({selectedValues: selectedValues});
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('admin_product_delete_selected_product_pictures') }}",
+                    contentType: "application/json", // Définir le type de contenu comme JSON
+                    data: jsonData,
+                    success: function (response) {
+                        // Supprimer le select après le succès de la requête
+                        $("input[name='selected[]']:checked").each(function () {
+                            $(this).closest('.card').remove();
+                            $('#product_form_productPictures_' + $(this).val()).remove();
+                        });
+                        console.log("Select supprimé avec succès !");
+                        window.location.reload()
+                    },
+                    error: function () {
+                        console.log("Erreur lors de la suppression du select.");
+                    }
+                });
+            });
+        });
+
+    </script>
+{% endblock %}

@@ -1,0 +1,42 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: lightgray;
+}
+.div-1 {
+    background-color: lightgrey;
+}
+
+.custom-image-size {
+    max-width: 100%;
+    height: auto;
+}
+
+.vertical-navbar {
+    width: 200px; /* Ajustez la largeur selon vos besoins */
+}
+
+.main-categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category {
+    position: relative;
+    cursor: pointer;
+}
+
+.sub-categories {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sub-category {
+    white-space: nowrap; /* Pour éviter le saut de ligne des sous-catégories */
+}

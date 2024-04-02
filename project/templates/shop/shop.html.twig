@@ -1,0 +1,193 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% include "_partial/_shopnav.html.twig" %}
+            <main class="col-9 p-2">
+                <div class="row p-2 mx-auto">
+                    {% for product in products %}
+                        <div class="card col-3 m-2">
+                            {% if product.productPictures is not empty %}
+                                {% for productPictures in product.productPictures %}
+                                    {% if productPictures.active == 1 and productPictures.cover ==1 %}
+                                        <div class="col">
+                                            <img src="{{ asset('img/' ~ productPictures.name) }}" class="d-block w-100" alt="...">
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <img src="{{ asset('img/kermit-2687975_640.webp') }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h6 class="card-text"><a href="{{ path('shop_product', {'id': product.id }) }}">{{ product.name }}</a></h6>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <div class="col">
+                                        <p class="card-text mb-0">Prix: {{ product.price }}€</p>
+                                    </div>
+                                    <div>
+                                        {% if product.stock > 0 %}
+                                        <button class="btn btn-success add-to-cart-btn" data-product-id="{{ product.id }}">Ajouter au panier</button>
+                                        {% elseif product.stock == 0 %}
+                                            <div class="card">OUT OF STOCK</div>
+                                            {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            const totalElement = document.getElementById('total');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    const productId = button.dataset.productId;
+                    const newQuantity = 1; // Vous pouvez définir la quantité à ajouter au panier ici
+
+                    fetch(`/cart/addAjax/${productId}?quantity=${newQuantity}`, { // Assurez-vous que le chemin d'accès est correct pour ajouter un produit au panier
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                console.log('Produit ajouté au panier avec succès');
+                                updateCartSummary();
+                                totalElement.textContent = data.total.toFixed(2) + '€';
+
+                                // Mettez à jour dynamiquement la section du panier
+
+                            } else {
+                                console.error('Erreur lors de l\'ajout du produit au panier');
+                            }
+                        })
+                        .catch(error => {
+                            console.error(error.message);
+                        });
+                });
+            });
+        });
+
+{#        function updateCartSummary() {#}
+{#            const totalElement = document.getElementById('total');#}
+{#            const cartSummary = document.getElementById('cart-summary');#}
+{#            let total = 0;#}
+
+{#            fetch('/cart/data')#}
+{#                .then(response => response.json())#}
+{#                .then(data => {#}
+{#                    let cartHtml = '';#}
+
+{#                    data.forEach(element => {#}
+{#                        cartHtml += `<div class="col">${element.product.name} ${element.product.price}€/u</div>#}
+{# <div class="row">#}
+{#     <div class="col col-3">#}
+{#         <input type="number" min="0" max="1000" value="${element.quantity}" name="quantity"#}
+{#                class="form-control quantity-input" data-product-id="${element.product.id}">#}
+{#     </div>#}
+{#     <div class="col">#}
+{#         <button class="btn btn-danger delete-from-cart-btn" data-product-id="${element.product.id}">#}
+{#             <i class="bi bi-cart-x"></i>#}
+{#         </button>#}
+{#     </div>#}
+{# </div>`;#}
+{#                        total += element.product.price * element.quantity;#}
+{#                    });#}
+
+{#                    cartHtml += `<div class="card-footer">Total :#}
+{#<span id="total">${total.toFixed(2)}€</span><a href='{{ path('cart_index') }}' class="btn btn-success">mon#}
+{#    panier</a>#}
+{#</div>`;#}
+
+{#                    cartSummary.innerHTML = cartHtml;#}
+{#                    totalElement.textContent = total.toFixed(2) + '€';#}
+
+{#                    // Réattacher les écouteurs d'événements après la mise à jour du contenu du panier#}
+{#                    attachEventListeners();#}
+{#                    attachQuantityInputListeners();#}
+{#                })#}
+{#                .catch(error => {#}
+{#                    console.error(error.message);#}
+{#                });#}
+{#        }#}
+
+{#        function attachEventListeners() {#}
+{#            const deleteButtons = document.querySelectorAll('.delete-from-cart-btn');#}
+{#            deleteButtons.forEach(button => {#}
+{#                button.addEventListener('click', function (event) {#}
+{#                    const productId = button.dataset.productId;#}
+
+{#                    fetch(`/cart/removeAjax/${productId}`, {#}
+{#                        method: 'POST',#}
+{#                        headers: {#}
+{#                            'Content-Type': 'application/json'#}
+{#                        }#}
+{#                    })#}
+{#                        .then(response => response.json())#}
+{#                        .then(data => {#}
+{#                            if (data.success) {#}
+{#                                console.log('Produit supprimé du panier avec succès');#}
+{#                                updateCartSummary(); // Mettre à jour le panier après la suppression du produit#}
+{#                            } else {#}
+{#                                console.error('Erreur lors de la suppression du produit du panier');#}
+{#                            }#}
+{#                        })#}
+{#                        .catch(error => {#}
+{#                            console.error(error.message);#}
+{#                        });#}
+{#                });#}
+{#            });#}
+{#        }#}
+
+{#        function attachQuantityInputListeners() {#}
+{#            const quantityInputs = document.querySelectorAll('.quantity-input');#}
+{#            quantityInputs.forEach(input => {#}
+{#                input.addEventListener('change', function (event) {#}
+{#                    const productId = event.target.dataset.productId;#}
+{#                    const newQuantity = event.target.value;#}
+
+{#                    fetch(`/cart/update/${productId}?quantity=${newQuantity}`, {#}
+{#                        method: 'POST',#}
+{#                        headers: {#}
+{#                            'Content-Type': 'application/json'#}
+{#                        }#}
+{#                    })#}
+{#                        .then(response => response.json())#}
+{#                        .then(data => {#}
+{#                            if (data.success) {#}
+{#                                console.log('Quantité mise à jour avec succès');#}
+{#                                updateCartSummary(); // Mettre à jour le panier après la modification de la quantité#}
+{#                            } else {#}
+{#                                console.error('Erreur lors de la mise à jour de la quantité');#}
+{#                            }#}
+{#                        })#}
+{#                        .catch(error => {#}
+{#                            console.error(error.message);#}
+{#                        });#}
+{#                });#}
+{#            });#}
+{#        }#}
+
+{#        document.addEventListener('DOMContentLoaded', function () {#}
+{#            // Appel initial pour attacher les écouteurs d'événements#}
+{#            attachEventListeners();#}
+{#            attachQuantityInputListeners();#}
+{#        });#}
+
+
+
+
+    </script>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% form_theme CategoryForm 'bootstrap_5_horizontal_layout.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <div class="container ">
+        <div class="row">
+            {% include "_partial/_adminnav.html.twig" %}
+            <main class="col-9 p-2">
+                <h1 class="mx-auto p-2">Modification</h1>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div class="row">
+                            {{ form_start(CategoryForm) }}
+                            <div class="col">
+                                <p class="card-text"><strong>Parent:</strong> {{ form_row(CategoryForm.parentCategory) }}</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text"><strong>Nom:</strong> {{ form_row(CategoryForm.name) }}</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text"><strong>Image:</strong> {{ form_row(CategoryForm.attachment) }}</p>
+                            </div>
+                            <div class="col">
+                                <p class="card-text"><strong>Description:</strong> {{ form_row(CategoryForm.description) }}</p>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary">Modifier</button>
+                            </div>
+                            {{ form_end(CategoryForm) }}
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}

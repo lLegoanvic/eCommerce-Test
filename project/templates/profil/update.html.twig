@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LoginController!{% endblock %}
+
+{% block body %}
+
+    <div class="container w-25">
+
+        <div class="row">
+            <div class="card col align-self-center ">
+                <div class="col-auto">
+                    <div class="card-header text-center">
+                        <h1 class="mx-auto p-2 ">Informations personnelles</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+{#                                <div class="col col-4">#}
+{#                                    Address mail#}
+{#                                </div>#}
+                                {{ form_start(UserForm) }}
+                                <div class="col col-6">
+                                    {{ form_row(UserForm.email) }}
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+{#                                <div class="col col-4">#}
+{#                                    Infos#}
+{#                                </div>#}
+                                <div class="col col-6">
+                                    {{ form_row(UserForm.infos) }}
+                                </div>
+
+                            </div>
+                            <div class="row mt-2 align-self-center ">
+                                <div class="col ">
+                                    <button type="submit" class="btn btn-primary">Modifier</button>
+                                </div>
+                                {{ form_end(UserForm) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

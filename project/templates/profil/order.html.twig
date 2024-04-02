@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block title %}Order{% endblock %}
+{%  block body %}
+    <div class="container">
+        <div class="card card-header">
+            Récapitulatif de votre commande :
+        </div>
+        <div class="card card-body">
+            <div>
+                Commande n° {{ order.id }}
+            </div>
+            <div>
+                Créée le  : {{ order.createdAt|date('d-m-Y H:i:s') }}
+            </div>
+            <div>
+                Adresse de livraison : {{ order.deliveryAddress }}
+            </div>
+            <div>
+                Adresse de facturation : {{ order.billingAddress }}
+            </div>
+            <div>
+                Status : {{ order.codeState.name }}
+            </div>
+
+
+            {#        {% set totalPrice = 0 %}#}
+            {% if order.orderLines is not null %}
+                {% for orderLine in order.orderLines %}
+                    {#                {% set totalPrice = totalPrice + (orderLine.quantity * orderLine.price) %}#}
+                    <div class="row p-2">
+                        <div class="col col-auto">
+                            {{ orderLine.idProduct }}
+                        </div>
+                        <div class="col col-auto">
+                            {{ orderLine.name }}
+                        </div>
+                        <div class="col col-auto">
+                            x {{ orderLine.quantity }}
+                        </div>
+                        <div class="col col-auto">
+                            {{ orderLine.price }}€
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="card card-footer">
+            <div class="row">
+                <div class="col text-end">
+                    Total : {{ order.totalPrice }}€
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
